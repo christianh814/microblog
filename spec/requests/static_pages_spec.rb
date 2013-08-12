@@ -33,4 +33,15 @@ describe "StaticPages" do
       expect(page).to have_title('Ruby On Rails Tutorial Microblog | About')
     end
   end
+
+  describe "Contact Page" do
+    it "should have the content 'Contact Us'" do
+      visit '/static_pages/contact'
+      expect(page).to have_content('Contact Us')
+    end
+    it "should have the right title 'Contact'" do
+      visit '/static_pages/contact'
+      expect(page).to have_title('Ruby On Rails Tutorial Microblog | Contact')
+    end
+  end
 end
