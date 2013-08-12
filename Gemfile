@@ -1,10 +1,19 @@
 source 'https://rubygems.org'
 
+# Make sure we are using the latest version of ruby
+ruby '2.0.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+# We are using rspec for unit testing
+#  also install dependencies
+gem 'rspec-rails'
+gem 'selenium-webdriver'
+gem 'capybara'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -32,6 +41,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Install pg connector
+gem 'pg'
+gem 'rails_12factor'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
