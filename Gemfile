@@ -47,6 +47,9 @@ end
 # Install pg connector
 gem 'pg'
 gem 'rails_12factor'
+
+# Install crypt mechanism
+gem 'bcrypt-ruby'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
