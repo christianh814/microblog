@@ -50,6 +50,9 @@ gem 'rails_12factor'
 
 # Install crypt mechanism
 gem 'bcrypt-ruby'
+
+# Install Factory Girl for user testing
+gem 'factory_girl_rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

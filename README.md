@@ -6,13 +6,10 @@ This is a microblog that is similar to Twitter
 
 * Rails Version - 4.0
 
-* Configuration
+* Database SQLite3
 
-* Database creation (TBD - SQLite3)
-
-* Database initialization (TBD - SQLite3)
-
-* How to run the test suite (rspec)
+* Test suite (rspec)
 
 * Deployment instructions (TBD)
+	* bundle exec rake db:migrate RAILS_ENV=production
 
