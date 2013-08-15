@@ -65,6 +65,16 @@ describe "User Pages" do
       visit edit_user_path(user)
     end
 
+##
+    describe "forbidden attributes" do
+      let(:params) do
+        { user: { admin: true, password: user.password, password_confirmation: user.password } }
+      end
+      before { patch user_path(user), params }
+      specify { expect(user.reload).not_to be_admin}
+    end
+##
+
     describe "Page" do
       it { should have_content("Update Your Profile") }
       it { should have_title("Edit User") }
