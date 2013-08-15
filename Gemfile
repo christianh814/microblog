@@ -53,6 +53,13 @@ gem 'bcrypt-ruby'
 
 # Install Factory Girl for user testing
 gem 'factory_girl_rails'
+
+# Install Faker to generate test users
+gem 'faker'
+
+# User paging gem
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
