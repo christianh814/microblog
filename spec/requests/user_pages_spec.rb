@@ -18,6 +18,23 @@ describe "User Pages" do
     it { should have_title(full_title('Sign Up'))}
   end
 
+  describe "Edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { visit edit_user_path(user) }
+
+    describe "Page" do
+      it { should have_content("Update Your Profile") }
+      it { should have_title("Edit User") }
+      it { should have_link('Change', href: 'http://gravatar.com/emails') }
+    end
+
+    describe "with invalid information" do
+      before { click_button "Save Changes" }
+
+      it { should have_content('error') }
+    end
+  end
+
   describe "signup" do
 
     before { visit signup_path }
