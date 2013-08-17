@@ -49,7 +49,8 @@ gem 'pg'
 gem 'rails_12factor'
 
 # Install crypt mechanism
-gem 'bcrypt-ruby'
+###gem "bcrypt-ruby", '~> 3.0.1', :require => 'bcrypt'
+gem "bcrypt-ruby", '~> 3.0.0', :require => 'bcrypt'
 
 # Install Factory Girl for user testing
 gem 'factory_girl_rails'
