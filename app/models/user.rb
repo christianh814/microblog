@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     if search.empty?
       return []
     else
-      find(:all, :conditions => ['name ILIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['username ILIKE ?', "%#{search}%"])
     end
   end
 
