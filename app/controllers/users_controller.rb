@@ -17,12 +17,11 @@ class UsersController < ApplicationController
   end
 
   def showresults
-    @users = User.search(params[:search])
+    @users = User.paginate(page: params[:page]).search(params[:search])
     if @users.empty?
-      flash[:notice] = "No Users Found"
+      flash[:notice] = "User Not Found"
       redirect_to root_path
     end
-    ##@users = @user.paginate(page: params[:page])
   end
 
   def create
