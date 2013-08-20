@@ -50,6 +50,7 @@ gem 'rails_12factor'
 
 # Install crypt mechanism
 ###gem "bcrypt-ruby", '~> 3.0.1', :require => 'bcrypt'
+##### Use "require" to list dependencies
 gem "bcrypt-ruby", '~> 3.0.0', :require => 'bcrypt'
 
 # Install Factory Girl for user testing
