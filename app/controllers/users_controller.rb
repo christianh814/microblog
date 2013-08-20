@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers, :showresults]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
@@ -14,6 +14,15 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def showresults
+    @users = User.search(params[:search])
+    if @users.empty?
+      flash[:notice] = "No Users Found"
+      redirect_to root_path
+    end
+    ##@users = @user.paginate(page: params[:page])
   end
 
   def create
