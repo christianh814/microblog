@@ -42,7 +42,9 @@ class User < ActiveRecord::Base
     if search.empty?
       return []
     else
-      find(:all, :conditions => ['username ILIKE ?', "%#{search}%"])
+      ## This apperently only works on PGSQL
+      ##find(:all, :conditions => ['username ILIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['lower(username) LIKE lower(?)', "%#{search}%"])
     end
   end
 
