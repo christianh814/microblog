@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def atreply
     @micropost = current_user.microposts.build
-    @feed_items = current_user.feed.paginate(page: params[:page])
+    @feed_items = Micropost.paginate(page: params[:page]).find(:all, :conditions => { :in_reply_to => current_user.id} )
   end
 
   def create

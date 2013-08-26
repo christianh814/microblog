@@ -4,27 +4,30 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    if @micropost.save
-      ##
-      # Check to see if it's an @reply
-      ##
-      if @micropost.content =~ /(@)\S+/i
-        @user = @micropost.content.match(/(@)\S+/i).to_s.gsub(/(@)/, '')
-        if User.search(@user).empty?
-          @micropost.in_reply_to = nil
-	else
-          @user = User.find_by(:username => @user)
-          @micropost.in_reply_to = @user.id
-          @micropost.save
-        end
+    @micropost.in_reply_to = nil
+    if @micropost.content =~ /(@)\S+/i
+      @user = @micropost.content.match(/(@)\S+/i).to_s.gsub(/(@)/, '')
+      if User.search(@user).empty?
+        @micropost.in_reply_to = nil
+        @micropost.save
+        flash[:success] = "Micropost created!"
+        redirect_to root_url
+      else
+        @user = User.find_by(:username => @user)
+        @micropost.in_reply_to = @user.id
+        @micropost.save
+        flash[:success] = "Micropost created!"
+        redirect_to root_url
       end
-      ##
-      flash[:success] = "Micropost created!"
-      redirect_to root_url
     else
-      @feed_items = []
-      render 'static_pages/home'
-    end
+      if @micropost.save
+        flash[:success] = "Micropost created!"
+        redirect_to root_url
+      else
+        @feed_items = []
+        render 'static_pages/home'
+      end
+   end
   end
 
   def destroy
