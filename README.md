@@ -1,4 +1,5 @@
-== README ==
+README
+========
 
 This is a microblog that is similar to Twitter
 
@@ -13,7 +14,8 @@ This is a microblog that is similar to Twitter
 * Deployment instructions (TBD)
 	* bundle exec rake db:migrate RAILS_ENV=production
 
-== TO DO ==
+TO DO
+========
 
 * Make The @reply a link to the user being mentionsed
 
