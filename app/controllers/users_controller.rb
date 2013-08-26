@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers, :showresults]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers, :showresults, :atreply]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
@@ -22,6 +22,11 @@ class UsersController < ApplicationController
       flash[:notice] = "User Not Found"
       redirect_to root_path
     end
+  end
+
+  def atreply
+    @micropost = current_user.microposts.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
   end
 
   def create
