@@ -8,10 +8,8 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
   </span>
-  <% if feed_item.in_reply_to %>
-    <!-- <%= link_to "reply", mentions_path(content: "#{feed_item.user.username}") %> -->
+  <% if not current_user?(feed_item.user) and feed_item.in_reply_to %>
      <%= link_to "reply", '#', :onclick => "document.getElementById('micropost_content').value='@#{feed_item.user.username} ';return false;" %>
-    <!-- <a href="#" onClick="document.getElementById('micropost_content').value=string">reply</a> -->
 
   <% end %>
   <% if current_user?(feed_item.user) %>
