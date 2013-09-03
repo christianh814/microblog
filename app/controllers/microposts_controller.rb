@@ -5,8 +5,8 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     @micropost.in_reply_to = nil
-    if @micropost.content =~ /(@)\S+/i
-      @user = @micropost.content.match(/(@)\S+/i).to_s.gsub(/(@)/, '')
+    if @micropost.content =~ /(@[a-zA-Z0-9_-]+)/i
+      @user = @micropost.content.match(/(@[a-zA-Z0-9_-]+)/i).to_s.gsub(/(@)/, '')
       if User.search(@user).empty?
         @micropost.in_reply_to = nil
         @micropost.save
