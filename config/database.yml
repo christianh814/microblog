@@ -18,8 +18,17 @@ test:
   pool: 5
   timeout: 5000
 
+###production:
+###  adapter: sqlite3
+###  database: db/production.sqlite3
+  ###pool: 5
+###  timeout: 5000
+  
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: microblog
   pool: 5
   timeout: 5000
+  username: microblog
+  password: microblog
+  host: 172.30.237.188
